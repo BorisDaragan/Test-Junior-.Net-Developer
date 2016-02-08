@@ -1,0 +1,25 @@
+﻿@model MVCStart.Models.Client
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <div class="col-md-2">
+        <img class="client_img " src="
+             @Model.picture
+             " />
+    </div>
+    <div class="col-md-10">
+        <h3>@Model.name (name), @Model.gender (gender)</h3>
+        <h4>@Model.company (company)</h4>
+        <p>@Model.email (email)</br>
+        @Model.phone (phone)</br>
+        @Model.address (address)</br>
+        Registered: @Model.registered (registered, Timezone depends on server locale)</p>
+    </div>
+</div>
+<div class="col-xs-12"
+    <p>@Model.about (about)</p>
+</div>

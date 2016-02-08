@@ -1,0 +1,50 @@
+﻿@model List<MVCStart.Models.Client>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<table id="client_list" class=" table-striped table-bordered">
+    <tr>
+        <th>name</th>
+        <th>company</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>tags</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{string CIref = "/Page1/ClientInfo?id=";
+                CIref += Model.IndexOf(item);
+                <a href=@CIref>@item.name</a>
+                }
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+
+                @foreach (string tag in item.tags)
+                {
+                    string Tagref = "/Page1/Index?tag=";
+                    Tagref += @tag;
+                    <a href=@Tagref>@tag </a>
+
+
+                }
+
+            </td>
+        </tr>
+    }
+</table>
